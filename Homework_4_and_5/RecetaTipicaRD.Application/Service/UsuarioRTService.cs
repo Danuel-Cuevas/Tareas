@@ -5,11 +5,11 @@ using RecetaTipicaRD.Infrastructure.Interfaces;
 
 namespace RecetaTipicaRD.Application.Service
 {
-    public class UsuarioDeportivoService : IUsuarioRTService
+    public class UsuarioRTService : IUsuarioRTService
     {
         private readonly IUsuarioRTRepository _repository;
 
-        public UsuarioDeportivoService(IUsuarioRTRepository repository)
+        public UsuarioRTService(IUsuarioRTRepository repository)
         {
             _repository = repository;
         }
@@ -49,7 +49,7 @@ namespace RecetaTipicaRD.Application.Service
             }
         }
 
-        private static UsuarioDeportivoDto MapToDto(UsuarioDeportivo entity) => new()
+        private static UsuarioRTDto MapToDto(UsuarioRT entity) => new()
         {
             Id = entity.Id,
             Nombre = entity.Nombre,
@@ -62,9 +62,9 @@ namespace RecetaTipicaRD.Application.Service
             Genero = entity.Genero
         };
 
-        private static UsuarioDeportivo MapToEntity(UsuarioDeportivoDto dto)
+        private static UsuarioRT MapToEntity(UsuarioRTDto dto)
         {
-            var entity = new UsuarioDeportivo
+            var entity = new UsuarioRT
             {
                 Nombre = dto.Nombre,
                 Apellido = dto.Apellido,
@@ -82,7 +82,7 @@ namespace RecetaTipicaRD.Application.Service
             return entity;
         }
 
-        private void Validar(UsuarioDeportivoDto dto)
+        private void Validar(UsuarioRTDto dto)
         {
             if (string.IsNullOrWhiteSpace(dto.Nombre)) throw new ArgumentException("El nombre es obligatorio.");
             if (string.IsNullOrWhiteSpace(dto.Apellido)) throw new ArgumentException("El apellido es obligatorio.");
