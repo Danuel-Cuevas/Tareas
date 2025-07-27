@@ -1,0 +1,6 @@
+@RecetaTipicaRD.API_HostAddress = http://localhost:5151
+
+GET {{RecetaTipicaRD.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
